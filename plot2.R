@@ -8,4 +8,8 @@ rug(data$Global_active_power)
 
 data$dateTime<-strptime(paste(as.character(data$Date), data$Time, sep=" "),format="%Y-%m-%d %H:%M:%S")
 plot(data$dateTime, data$Global_active_power,type="l",ylab="Global Active Power",xlab="")
-plot(1,type="n")
+
+plot(data$dateTime, data$Sub_metering_1,type="l",col="red",ylab="Energy sub metering", xlab="")
+lines(data$dateTime, data$Sub_metering_2,col="blue")
+lines(data$dateTime, data$Sub_metering_3,col="green")
+legend('topright', names(data)[7:9] , lty=1, col=c('red', 'blue', 'green',' brown'), bty='n', cex=.75)
